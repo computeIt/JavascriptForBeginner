@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            height: 300px;
+            width: 300px;
+            border: 2px solid gray;
+            background-color: #51FFFC;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        var div = document.getElementById("div1");
+        div.onmouseover = function () {
+            getStyle(this);
+        };
+
+        div.onmouseover = null;
+
+        function getStyle(el) {
+            var style = getComputedStyle(el);
+            var txt = "";
+            for (var i=0; i<style.length; i++){
+                txt+=style[i]+": "+style.getPropertyValue(style[i])+";\n";
+            }
+            alert(txt);
+        }
+    </script>
+</body>
+</html>
